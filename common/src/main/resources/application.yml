@@ -1,0 +1,11 @@
+spring:
+  profiles:
+    active: local
+---
+spring:
+  profiles: local
+  name: local-dev-profile
+---
+spring:
+  profiles: prod
+  name: live-prod-profile
