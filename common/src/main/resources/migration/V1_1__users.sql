@@ -9,7 +9,7 @@ create table m_users
     login       varchar(100)                                               not null,
     password    varchar(1000) default '123'::character varying             not null,
     created     timestamp(6),
-    changed     timestamp(6),
+    updated     timestamp(6),
     is_blocked  boolean       default false                                not null,
     gender      varchar(50)   default 'NOT_SELECTED'::character varying    not null
 );
@@ -19,3 +19,5 @@ alter table m_users
 
 create unique index m_users_login_index
     on m_users (login);
+
+create sequence user_seq start 1;

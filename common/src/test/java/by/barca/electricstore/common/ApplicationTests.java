@@ -1,4 +1,4 @@
-package by.barca.electricstore.common.service;
+package by.barca.electricstore.common;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
