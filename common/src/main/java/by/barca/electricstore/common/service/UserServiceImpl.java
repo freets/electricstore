@@ -3,7 +3,6 @@ package by.barca.electricstore.common.service;
 import by.barca.electricstore.common.domain.User;
 import by.barca.electricstore.common.repo.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -28,6 +27,18 @@ public class UserServiceImpl implements UserService{
         user.setPassword(passwordEncoder.encode(user.getPassword()));
 
         return userRepository.save(user);
+    }
+
+    public Optional<User> findOne(Long id){
+
+        return userRepository.findById(id);
+
+    }
+
+    public void delete(Long id){
+
+        userRepository.deleteById(id);
+
     }
 
 }
