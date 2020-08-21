@@ -10,7 +10,7 @@ alter table m_roles
     owner to electricstoreadmin;
 
 create index m_roles_role_name_index
-    on m_roles (role_name);
+    on m_roles (name);
 
 -----------------------------------------
 

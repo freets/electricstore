@@ -20,11 +20,17 @@ spring:
     url: ${spring.datasource.url}
     user: ${spring.datasource.username}
     password: ${spring.datasource.password}
+  application:
+    jwtSecret: electricstoreLocalSecretKey
+    jwtExpirationMs: 86400000
 ---
 spring:
   profiles: prod
   profiles.include: jpacommon
   name: live-prod-profile
+  application:
+    jwtSecret: electricstoreLiveSecretKey
+    jwtExpirationMs: 86400000
 ---
 spring:
   profiles: jpacommon

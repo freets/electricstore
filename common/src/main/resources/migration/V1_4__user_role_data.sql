@@ -1,7 +1,7 @@
-INSERT INTO public.m_roles (id, role_name)
-VALUES (1, 'ADMIN');
-INSERT INTO public.m_roles (id, role_name)
-VALUES (2, 'USER');
+INSERT INTO public.m_roles (id, name)
+VALUES (1, 'ROLE_ADMIN');
+INSERT INTO public.m_roles (id, name)
+VALUES (2, 'ROLE_USER');
 
 ------------------------------------------
 
