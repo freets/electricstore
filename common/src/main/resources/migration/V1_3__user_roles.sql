@@ -3,7 +3,7 @@ create table m_roles
     id          bigserial   not null
         constraint m_roles_pk
             primary key,
-    role_name   varchar(50) not null
+    name   varchar(50) not null
 );
 
 alter table m_roles

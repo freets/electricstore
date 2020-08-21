@@ -1,10 +1,12 @@
 package by.barca.electricstore.common.domain;
 
 import lombok.*;
+import org.springframework.security.core.GrantedAuthority;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Date;
+import java.util.*;
 
 @Setter
 @Getter
@@ -49,5 +51,11 @@ public class User implements Serializable {
     @Column
     @Enumerated(EnumType.STRING)
     private Gender gender = Gender.NOT_SELECTED;
+
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(	name = "m_user_roles",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id"))
+    private Set<Role> roles = new HashSet<>();
 
 }
