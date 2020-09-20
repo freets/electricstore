@@ -1,13 +1,13 @@
 create table m_users
 (
-    id          bigserial                                                  not null
+    id          bigserial     not null
                 constraint m_users_pk
                 primary key,
-    username    varchar(200)  default 'DEFAULT_NAME'::character varying    not null,
-    surname     varchar(1000) default 'DEFAULT_SURNAME'::character varying not null,
+    username    varchar(200)  not null,
+    surname     varchar(1000) not null,
     birth_date  date,
-    login       varchar(100)                                               not null,
-    password    varchar(1000) default '123'::character varying             not null,
+    login       varchar(100)  not null,
+    password    varchar(1000) not null,
     created     timestamp(6),
     updated     timestamp(6),
     is_blocked  boolean       default false                                not null,

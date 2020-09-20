@@ -16,9 +16,6 @@ create index m_roles_role_name_index
 
 create table m_user_roles
 (
-    id          bigserial   not null
-        constraint m_user_role_pk
-            primary key,
     role_id     bigint not null
         constraint m_role_id_fk
             references m_roles

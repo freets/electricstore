@@ -1,11 +1,14 @@
 package by.barca.electricstore.common.service;
 
+import by.barca.electricstore.common.domain.Role;
+import by.barca.electricstore.common.domain.Roles;
 import by.barca.electricstore.common.domain.User;
 import by.barca.electricstore.common.repo.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.Collections;
 import java.util.Optional;
 
 @Service
@@ -25,6 +28,7 @@ public class UserServiceImpl implements UserService{
     public User save(User user) {
 
         user.setPassword(passwordEncoder.encode(user.getPassword()));
+        // user.setRoles(Collections.singleton(new Role(Roles.ROLE_USER)));
         return userRepository.save(user);
     }
 

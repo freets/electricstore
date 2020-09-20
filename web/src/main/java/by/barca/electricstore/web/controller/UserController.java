@@ -8,6 +8,7 @@ import io.swagger.annotations.ApiResponses;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.lang.model.type.ErrorType;
@@ -46,6 +47,7 @@ public class UserController {
             @ApiResponse(code = 500, message = "Server error")
     })
     @PutMapping("/{id}")
+    @PreAuthorize("hasRole('USER')")
     public User update(@PathVariable Long id, @RequestBody User user) {
 
         Optional<User> u = service.findOne(id);
@@ -64,6 +66,7 @@ public class UserController {
             @ApiResponse(code = 500, message = "Server error")
     })
     @DeleteMapping("/{id}")
+    @PreAuthorize("hasRole('USER')")
     public void delete(@PathVariable Long id) {
 
         service.delete(id);
