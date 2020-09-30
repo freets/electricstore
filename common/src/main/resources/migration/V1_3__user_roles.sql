@@ -1,30 +1,30 @@
-create table m_roles
+create table m_role
 (
     id          bigserial   not null
-        constraint m_roles_pk
+        constraint m_role_pk
             primary key,
     name   varchar(50) not null
 );
 
-alter table m_roles
+alter table m_role
     owner to electricstoreadmin;
 
-create index m_roles_role_name_index
-    on m_roles (name);
+create index m_role_role_name_index
+    on m_role (name);
 
 -----------------------------------------
 
-create table m_user_roles
+create table m_user_role
 (
     role_id     bigint not null
         constraint m_role_id_fk
-            references m_roles
+            references m_role
             on update cascade on delete cascade,
     user_id     bigint  not null
         constraint m_user_id_fk
-            references m_users
+            references m_user
             on update cascade on delete cascade
 );
 
-alter table m_user_roles
+alter table m_user_role
     owner to electricstoreadmin;

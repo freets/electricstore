@@ -4,7 +4,7 @@ package by.barca.electricstore.common.domain;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "m_roles")
+@Table(name = "m_role")
 public class Role {
 
     @Id

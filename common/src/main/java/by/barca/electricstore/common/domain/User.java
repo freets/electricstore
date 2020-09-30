@@ -1,7 +1,6 @@
 package by.barca.electricstore.common.domain;
 
 import lombok.*;
-import org.springframework.security.core.GrantedAuthority;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -15,13 +14,12 @@ import java.util.*;
 @EqualsAndHashCode
 @ToString
 @Entity
-@Table(name = "m_users")
+@Table(name = "m_user")
 public class User implements Serializable {
 
     @Id
     @SequenceGenerator(name = "user_seq", sequenceName = "user_seq", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "user_seq")
-    // @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column
@@ -53,7 +51,7 @@ public class User implements Serializable {
     private Gender gender = Gender.NOT_SELECTED;
 
     @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(	name = "m_user_roles",
+    @JoinTable(	name = "m_user_role",
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles = new HashSet<>();

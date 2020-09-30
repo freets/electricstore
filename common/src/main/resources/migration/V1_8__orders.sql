@@ -23,16 +23,16 @@ create table m_order
 alter table m_order
     owner to electricstoreadmin;
 
-create sequence cart_seq start 1;
+create sequence order_seq start 1;
 
-create table m_cart_item
+create table m_order_item
 (
     id              bigserial     not null
-                    constraint m_product_pk
+                    constraint m_order_item_pk
                     primary key,
-    cart_id         bigint not null
-                    constraint m_cart_id_fk
-                        references m_cart(id)
+    order_id        bigint not null
+                    constraint m_order_id_fk
+                        references m_order(id)
                         on update cascade on delete cascade,
     product_id      bigint not null
                     constraint m_cart_product_id_fk
@@ -42,7 +42,7 @@ create table m_cart_item
     quantity        bigint not null
 );
 
-alter table m_cart_item
+alter table m_order_item
     owner to electricstoreadmin;
 
-create sequence cart_item_seq start 1;
+create sequence order_item_seq start 1;
